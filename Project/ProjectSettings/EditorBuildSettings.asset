@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Reneton/Scene/MenuEarlyBuild.unity
+    guid: a91dab9b3768cc642ae736c14dd50e5f
+  - enabled: 1
+    path: Assets/Reneton/Scene/Pre-AlphaFoundation.unity
+    guid: e1395e97c66df0c418c5c83c5d62b077
   m_configObjects: {}
