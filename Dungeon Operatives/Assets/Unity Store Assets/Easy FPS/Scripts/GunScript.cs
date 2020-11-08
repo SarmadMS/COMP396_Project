@@ -46,7 +46,7 @@ public class GunScript : MonoBehaviour {
 		pmS = player.GetComponent<PlayerMovementScript>();
 
 		bulletSpawnPlace = GameObject.FindGameObjectWithTag("BulletSpawn");
-		hitMarker = transform.FindChild ("hitMarkerSound").GetComponent<AudioSource> ();
+		hitMarker = transform.Find ("hitMarkerSound").GetComponent<AudioSource> ();
 
 		startLook = mouseSensitvity_notAiming;
 		startAim = mouseSensitvity_aiming;
