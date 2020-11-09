@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Enemy A.I. Scene.unity
+=======
+- path: Assets/Reneton/Level1.unity
+>>>>>>> main
   isLoaded: 1
   isActive: 1
   isSubScene: 0
