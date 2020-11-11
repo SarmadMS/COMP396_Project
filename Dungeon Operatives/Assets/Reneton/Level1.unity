@@ -5295,9 +5295,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7964969449257853200, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7964969449909596433, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.49
+      objectReference: {fileID: 0}
     - target: {fileID: 7964969450972492346, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
       propertyPath: m_Name
       value: Dungeon Operative
+      objectReference: {fileID: 0}
+    - target: {fileID: 7964969450972492350, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7964969450972492351, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5305,7 +5317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7964969450972492351, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.915
+      value: 1.17
       objectReference: {fileID: 0}
     - target: {fileID: 7964969450972492351, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
       propertyPath: m_LocalPosition.z

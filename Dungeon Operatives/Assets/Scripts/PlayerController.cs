@@ -1,125 +1,105 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Threading;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float walkingSpeed = 5f;
-    [SerializeField] private float runningSpeed = 10f;
-    [SerializeField] private int sprintLimit = 5;
-    [SerializeField] private float jumpForce = 30f;
-    [SerializeField] private float cameraRotation = 10f;
-    [SerializeField] private float bodyRotation = 10f;
+    //FPS Movement Variables
+    public CharacterController controller;
+    public float speed = 12f;
+    public float gravity = -9.81f;
+    public float jumpHeight = 3f;
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    Vector3 velocity;
+    bool isGrounded;
+    private Rigidbody rbody;
 
-    private float leftJoystickX;
-    private float leftJoystickY;
-    private float rightJoystickX;
-    private float rightJoystickY;
+    //FPS Camera Variables
+    public float mouseSensitivity = 100f;
+    public Transform playerBody;
+    float xRotation = 0f;
+
+    //Sprinting Variables
+    private int sprintLimit = 5;
+    private float runningSpeed = 10f;
     private bool sprinting = false;
     private bool isSprintingReady = true;
     private float sprintStartTime;
-    private float bodyAngle;
-    private float headAngle;
-    private float lookX = 0f;
-    private float lookY = 0f;
 
-
-    private Rigidbody rbody;
-    private Transform playerHead;
-
-    // Start is called before the first frame update
     void Start()
     {
-        rbody = GetComponent<Rigidbody>();
-        playerHead = transform.Find("Camera").GetComponent<Transform>();
+       rbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        leftJoystickX = Input.GetAxis("P1 Move X");
-        leftJoystickY = Input.GetAxis("P1 Move Y");
-        rightJoystickX = Input.GetAxis("P1 Look X");
-        rightJoystickY = Input.GetAxis("P1 Look Y");
+        //FPS Camera Function
+        float mouseX = Input.GetAxis("P1 Look X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("P1 Look Y") * mouseSensitivity * Time.deltaTime;
 
-        // Look
-        //Debug.Log(Input.GetAxis("P1 Look X") + " " + Input.GetAxis("P1 Look Y"));     
-        if (rightJoystickX > lookX)
-        {
-            lookX = rightJoystickX;
-            bodyAngle += transform.rotation.y + (lookX * bodyRotation);
-        }
-        else if (rightJoystickX < lookX || rightJoystickX == 0)
-        {
-            lookX = 0;
-        }
+        xRotation += mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        if (rightJoystickX < lookX)
-        {
-            lookX = rightJoystickX;
-            bodyAngle += transform.rotation.y + (lookX * bodyRotation);
-        }
-        else if (rightJoystickX > lookX || rightJoystickX == 0)
-        {
-            lookX = 0;
-        }        
-        transform.rotation = Quaternion.Euler(transform.rotation.x, bodyAngle, transform.rotation.z);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
 
-        if (rightJoystickY > lookY)
+        //Movement Function
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        if (isGrounded && velocity.y < 0)
         {
-            lookY = rightJoystickY;
-            headAngle += transform.rotation.x + (lookY * cameraRotation);
-        }
-        else if (rightJoystickY < lookY || rightJoystickY == 0)
-        {
-            lookY = 0;
+            velocity.y = -2f;
         }
 
-        if (rightJoystickY < lookY)
-        {
-            lookY = rightJoystickY;
-            headAngle += transform.rotation.x + (lookY * cameraRotation);
-        }
-        else if (rightJoystickY > lookY || rightJoystickY == 0)
-        {
-            lookY = 0;
-        }
-        playerHead.transform.rotation = Quaternion.Euler(Mathf.Clamp(headAngle, -45, 45), bodyAngle, transform.rotation.z);
-        
-               
+        float x = Input.GetAxis("P1 Move X");
+        float z = Input.GetAxis("P1 Move Y");
 
-        // Jump
-        if (Input.GetButtonDown("P1 Jump"))
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        controller.Move(move * speed * Time.deltaTime);
+
+        //Jump Function
+        if (Input.GetButtonDown("P1 Jump") && isGrounded)
         {
-            Debug.Log("jump");
-            rbody.AddForce(0, jumpForce, 0, ForceMode.Impulse);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
 
         // Sprinting
-        if (isSprintingReady == true && Input.GetButtonUp("P1 Sprint") && leftJoystickY > 0)
+        if (isSprintingReady == true && Input.GetButtonUp("P1 Sprint") && z > 0)
         {
+            speed += 5f;
             isSprintingReady = false;
             sprinting = true;
             sprintStartTime = Time.realtimeSinceStartup;
         }
-        else if (sprinting == true && leftJoystickY <= 0 && (Time.realtimeSinceStartup - sprintStartTime <= sprintLimit))
+        else if (sprinting == true && z <= 0 && (Time.realtimeSinceStartup - sprintStartTime <= sprintLimit))
         {
+            speed -= 5f;
             sprinting = false;
             Invoke("SprintingCooldown", Time.realtimeSinceStartup - sprintStartTime);
         }
         else if (sprinting == true && (Time.realtimeSinceStartup - sprintStartTime >= sprintLimit))
         {
+            speed -= 5f;
             sprinting = false;
             Invoke("SprintingCooldown", sprintLimit);
         }
-
         if (sprinting == false)
         {
-            rbody.velocity = new Vector3(leftJoystickX * walkingSpeed, rbody.velocity.y, leftJoystickY * walkingSpeed);
+            rbody.velocity = new Vector3(x * speed, rbody.velocity.y, z * speed);
         }
         else if (sprinting == true)
         {
-            rbody.velocity = new Vector3(leftJoystickX * runningSpeed, rbody.velocity.y, leftJoystickY * runningSpeed);
+            rbody.velocity = new Vector3(x * runningSpeed, rbody.velocity.y, z * speed);
         }
     }
 
