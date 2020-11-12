@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Unity Store Assets/Low Poly FPS Pack - Free (Sample)/Demo_Scenes/Weapon_Demo_Scenes/Handgun_01_Demo/Handgun_01_Demo.unity
+- path: Assets/Scenes/Experimental Scene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
