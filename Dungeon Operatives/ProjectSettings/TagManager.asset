@@ -12,6 +12,7 @@ TagManager:
   - SecondCamera
   - BulletSpawn
   - Projectile
+  - Wall
   layers:
   - Default
   - TransparentFX
