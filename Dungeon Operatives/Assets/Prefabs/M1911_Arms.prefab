@@ -12154,6 +12154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be960df324619241aecbccdd9dbdb7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAmmo: 8
+  magazineSize: 8
 --- !u!114 &3706205106298398941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12317,7 +12319,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3706205106298398913}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
