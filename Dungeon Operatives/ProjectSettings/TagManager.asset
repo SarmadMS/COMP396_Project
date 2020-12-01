@@ -8,6 +8,10 @@ TagManager:
   - Target
   - ExplosiveBarrel
   - Enemy
+  - Weapon
+  - SecondCamera
+  - BulletSpawn
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

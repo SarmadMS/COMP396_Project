@@ -155,6 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3706205104753402571}
   - component: {fileID: 3706205104753402570}
+  - component: {fileID: 5453078184530284334}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -219,6 +220,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!81 &5453078184530284334
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3706205104753402568}
+  m_Enabled: 1
 --- !u!1 &3706205104798520046
 GameObject:
   m_ObjectHideFlags: 0
@@ -12156,6 +12165,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentAmmo: 8
   magazineSize: 8
+  magazinePrefab: {fileID: 556320542479177742, guid: 1fdf05a47207ed54a9ab6e495d90b2c0, type: 3}
+  magazineSpawnPoint: {fileID: 3376287725237504954}
+  casingPrefab: {fileID: 1492315059354262, guid: 8f242c965f69017458e94a1feebf7663, type: 3}
+  casingSpawnPoint: {fileID: 3851916496907465180}
+  bulletPrefab: {fileID: 1086664671600574, guid: 9d34efdb1df0d6d4c8db3c6125a0b877, type: 3}
+  bulletSpawnPoint: {fileID: 8906073770345286357}
+  bulletForce: 400
+  randomMuzzleflash: 1
+  maxRandomValue: 5
+  enableMuzzleflash: 1
+  muzzleParticles: {fileID: 3706205105460505123}
+  enableSparks: 1
+  sparkParticles: {fileID: 3706205104839942177}
+  minSparkEmission: 1
+  maxSparkEmission: 7
+  muzzleflashLight: {fileID: 3706205106180699650}
+  lightDuration: 0.02
+  mainAudioSource: {fileID: 3706205106298398914}
+  SoundClips:
+    shootSound: {fileID: 8300000, guid: 38b450e2adcb6f542acc8c1d423bd8dc, type: 3}
+    takeOutSound: {fileID: 8300000, guid: 2ae41e984ff1f3e4a840a1a46b6a8816, type: 3}
+    reloadSoundOutOfAmmo: {fileID: 8300000, guid: fee3a21f251a4914cabce25b13e7d2a8, type: 3}
+    reloadSoundAmmoLeft: {fileID: 8300000, guid: b0d51244fd32fc647960320540b32f66, type: 3}
+    aimSound: {fileID: 8300000, guid: acaebc89b98b82142bd2b24edb6081e4, type: 3}
 --- !u!114 &3706205106298398941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12952,8 +12985,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
+--- !u!4 &8906073770345286357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5333202726398740064, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
+  m_PrefabInstance: {fileID: 3574711828480953525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3569794354713785343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4952727429218122, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
+  m_PrefabInstance: {fileID: 3574711828480953525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3376287725237504954 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2252106284779538191, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
+  m_PrefabInstance: {fileID: 3574711828480953525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3851916496907465180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 355552178730728809, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
   m_PrefabInstance: {fileID: 3574711828480953525}
   m_PrefabAsset: {fileID: 0}

@@ -2,11 +2,14 @@
 using System.Collections;
 
 // ----- Low Poly FPS Pack Free Version -----
-public class CasingScript : MonoBehaviour {
+public class CasingScript : MonoBehaviour
+{
+
+	private bool isColliding = false;
 
 	[Header("Force X")]
 	[Tooltip("Minimum force on X axis")]
-	public float minimumXForce;		
+	public float minimumXForce;
 	[Tooltip("Maimum force on X axis")]
 	public float maximumXForce;
 	[Header("Force Y")]
@@ -38,43 +41,46 @@ public class CasingScript : MonoBehaviour {
 	public float speed = 2500.0f;
 
 	//Launch the casing at start
-	private void Awake () 
+	private void Awake()
 	{
 		//Random rotation of the casing
-		GetComponent<Rigidbody>().AddRelativeTorque (
+		GetComponent<Rigidbody>().AddRelativeTorque(
 			Random.Range(minimumRotation, maximumRotation), //X Axis
 			Random.Range(minimumRotation, maximumRotation), //Y Axis
 			Random.Range(minimumRotation, maximumRotation)  //Z Axis
 			* Time.deltaTime);
 
 		//Random direction the casing will be ejected in
-		GetComponent<Rigidbody>().AddRelativeForce (
-			Random.Range (minimumXForce, maximumXForce),  //X Axis
-			Random.Range (minimumYForce, maximumYForce),  //Y Axis
-			Random.Range (minimumZForce, maximumZForce)); //Z Axis		     
+		GetComponent<Rigidbody>().AddRelativeForce(
+			Random.Range(minimumXForce, maximumXForce),  //X Axis
+			Random.Range(minimumYForce, maximumYForce),  //Y Axis
+			Random.Range(minimumZForce, maximumZForce)); //Z Axis		     
 	}
 
-	private void Start () 
+	private void Start()
 	{
 		//Start the remove/destroy coroutine
-		StartCoroutine (RemoveCasing ());
+		StartCoroutine(RemoveCasing());
 		//Set random rotation at start
 		transform.rotation = Random.rotation;
 		//Start play sound coroutine
-		StartCoroutine (PlaySound ());
+		StartCoroutine(PlaySound());
 	}
 
-	private void FixedUpdate () 
+	private void FixedUpdate()
 	{
-		//Spin the casing based on speed value
-		transform.Rotate (Vector3.right, speed * Time.deltaTime);
-		transform.Rotate (Vector3.down, speed * Time.deltaTime);
+		if (isColliding == false)
+		{
+			//Spin the casing based on speed value
+			transform.Rotate(Vector3.right, speed * Time.deltaTime);
+			transform.Rotate(Vector3.down, speed * Time.deltaTime);
+		}
 	}
 
-	private IEnumerator PlaySound () 
+	private IEnumerator PlaySound()
 	{
 		//Wait for random time before playing sound clip
-		yield return new WaitForSeconds (Random.Range(0.25f, 0.85f));
+		yield return new WaitForSeconds(Random.Range(0.25f, 0.85f));
 		//Get a random casing sound from the array 
 		audioSource.clip = casingSounds
 			[Random.Range(0, casingSounds.Length)];
@@ -82,12 +88,16 @@ public class CasingScript : MonoBehaviour {
 		audioSource.Play();
 	}
 
-	private IEnumerator RemoveCasing () 
+	private IEnumerator RemoveCasing()
 	{
 		//Destroy the casing after set amount of seconds
-		yield return new WaitForSeconds (despawnTime);
+		yield return new WaitForSeconds(despawnTime);
 		//Destroy casing object
-		Destroy (gameObject);
+		//Destroy (gameObject);
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		isColliding = true;
 	}
 }
-// ----- Low Poly FPS Pack Free Version -----

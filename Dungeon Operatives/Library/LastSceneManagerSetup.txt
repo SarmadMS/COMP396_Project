@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Reneton/Level3.unity
-=======
 - path: Assets/Scenes/Experimental Scene.unity
->>>>>>> main
   isLoaded: 1
   isActive: 1
   isSubScene: 0
