@@ -7,11 +7,15 @@ TagManager:
   - Metal
   - Target
   - ExplosiveBarrel
-  - Enemy
   - Weapon
   - SecondCamera
   - BulletSpawn
   - PlayerBullet
+  - Projectile
+  - ChaseEnemy
+  - ChaseEnemHead
+  - RangeEnemy
+  - RangeEnemHead
   layers:
   - Default
   - TransparentFX
