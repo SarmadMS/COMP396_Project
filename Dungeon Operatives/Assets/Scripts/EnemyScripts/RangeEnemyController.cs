@@ -29,6 +29,7 @@ public class RangeEnemyController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        TakeDamage();
     }
 
     // Update is called once per frame
@@ -99,13 +100,31 @@ public class RangeEnemyController : MonoBehaviour
         attackActive = false;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
         if (health <= 0)
         {
-            Invoke(nameof(DestroyEnemy), 2f);
+            Destroy(gameObject);
         }
     }
+
+    //public void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.transform.tag == "PlayerBullet")
+    //    {
+    //        health -= 25;
+    //    }
+    //    if (collision.transform.gameObject.GetComponentInParent<SphereCollider>() && collision.transform.tag == "PlayerBullet")
+    //    {
+    //        //SphereCollider objCollider = collision.transform.GetComponent<SphereCollider>();
+    //        health -= 50;
+    //    }
+    //    if (health <= 0)
+    //    {
+    //        //Invoke(nameof(DestroyEnemy), 2f);
+    //        Destroy(gameObject);
+    //    }
+    //}
 
     public void DestroyEnemy()
     {

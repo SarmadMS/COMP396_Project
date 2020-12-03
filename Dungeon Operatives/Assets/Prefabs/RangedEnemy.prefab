@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 047ee7a0d8a91334c95e19dbe70ea3ad, type: 2}
+  - {fileID: 2100000, guid: f3ea7e3e248088a4d8c7c7f5e5da224b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 118869727077905132}
-  player: {fileID: 0}
+  player: {fileID: 7964969450972492351, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 118869728479951495}
   - component: {fileID: 118869728479951490}
   - component: {fileID: 118869728479951489}
-  - component: {fileID: 118869728479951488}
+  - component: {fileID: 339111432189294451}
   m_Layer: 0
   m_Name: RangeEnemHead
   m_TagString: RangeEnemHead
@@ -177,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118869728479951494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 1.22, z: 0}
+  m_LocalPosition: {x: -0.01, y: 1.287, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 118869727077905135}
@@ -210,7 +210,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 047ee7a0d8a91334c95e19dbe70ea3ad, type: 2}
+  - {fileID: 2100000, guid: 764ca85244fe1b84098c95e706e8bd59, type: 2}
+  - {fileID: 2100000, guid: f3ea7e3e248088a4d8c7c7f5e5da224b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -232,7 +233,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &118869728479951488
+--- !u!135 &339111432189294451
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
