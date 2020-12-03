@@ -16,6 +16,8 @@ TagManager:
   - ChaseEnemHead
   - RangeEnemy
   - RangeEnemHead
+  - Wall
+  - RangeEnemBody
   layers:
   - Default
   - TransparentFX

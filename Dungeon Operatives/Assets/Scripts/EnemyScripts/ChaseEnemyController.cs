@@ -92,25 +92,4 @@ public class ChaseEnemyController : MonoBehaviour
     {
         attackActive = false;
     }
-
-    //public void TakeDamage(int damage)
-    //{
-    //    if (health <= 0)
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
-
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.tag == "PlayerBullet")
-        {
-            health -= 25;
-        }
-        if (health <= 0)
-        {
-            //Invoke(nameof(DestroyEnemy), 2f);
-            Destroy(gameObject);
-        }
-    }
 }

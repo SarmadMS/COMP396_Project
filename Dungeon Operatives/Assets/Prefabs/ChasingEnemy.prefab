@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 8056127439177383302}
   - component: {fileID: 8056127439177383297}
   - component: {fileID: 8056127439177383301}
-  - component: {fileID: 8056127439177383298}
+  - component: {fileID: 1398097207410881359}
   m_Layer: 0
   m_Name: ChasingEnemy
-  m_TagString: ChaseEnemHead
+  m_TagString: ChaseEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,7 +121,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8056127439177383298
+--- !u!114 &1398097207410881359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,8 +145,8 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   attackDelay: 0.5
-  sightRange: 10
-  attackRange: 1
+  sightRange: 18
+  attackRange: 2
   inSightRange: 0
   inAttackRange: 0
 --- !u!1 &8056127440385317777
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 8056127440385317788}
   - component: {fileID: 8056127440385317779}
   m_Layer: 0
-  m_Name: ChaseEnemHead
+  m_Name: ChaseHead
   m_TagString: ChaseEnemHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

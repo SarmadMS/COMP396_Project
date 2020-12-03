@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 118869727077905134}
   - component: {fileID: 118869727077905133}
   - component: {fileID: 118869727077905132}
-  - component: {fileID: 118869727077905123}
+  - component: {fileID: 4320053288222911422}
   - component: {fileID: 118869727077905122}
   m_Layer: 0
   m_Name: RangedEnemy
@@ -107,7 +107,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!136 &118869727077905123
+--- !u!136 &4320053288222911422
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,9 +141,12 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
-  health: 100
+  rhealth: 100
+  head: {fileID: 339111432189294451}
+  body: {fileID: 0}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
+  projectileSpeed: 20
   attackDelay: 2
   enemyProjectile: {fileID: 4067145303723025591, guid: 6ddbe78002261b049bd91ff46a979be8, type: 3}
   sightRange: 25
@@ -163,7 +166,7 @@ GameObject:
   - component: {fileID: 118869728479951489}
   - component: {fileID: 339111432189294451}
   m_Layer: 0
-  m_Name: RangeEnemHead
+  m_Name: RangeHead
   m_TagString: RangeEnemHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,5 +247,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.51246345
+  m_Center: {x: 0, y: -0.01246345, z: 0}

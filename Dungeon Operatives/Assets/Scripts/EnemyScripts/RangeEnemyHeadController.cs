@@ -20,9 +20,5 @@ public class RangeEnemyHeadController : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
 
-        if(health.health <= 0)
-        {
-            Destroy(collision.gameObject);
-        }
     }
 }

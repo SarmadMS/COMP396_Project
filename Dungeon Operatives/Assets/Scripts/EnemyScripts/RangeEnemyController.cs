@@ -8,7 +8,9 @@ public class RangeEnemyController : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
-    public float health = 100;
+    public float rhealth = 100;
+    //public Transform head;
+    //public Transform body;
 
     //Patrol Variables
     public Vector3 walkPoint;
@@ -16,6 +18,7 @@ public class RangeEnemyController : MonoBehaviour
     public float walkPointRange;
 
     //Attack Variable
+    public float projectileSpeed;
     public float attackDelay;
     bool attackActive;
     public GameObject enemyProjectile;
@@ -29,7 +32,9 @@ public class RangeEnemyController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
-        TakeDamage();
+        //TakeDamage();
+        //head = GameObject.FindGameObjectWithTag("RangeEnemHead").transform;
+        //body = GameObject.FindGameObjectWithTag("RangeEnemBody").transform;
     }
 
     // Update is called once per frame
@@ -87,9 +92,9 @@ public class RangeEnemyController : MonoBehaviour
         {
             //Instantiate Enemy projectile
             Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
             //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
-            
+
             attackActive = true;
             Invoke(nameof(ResetAttack), attackDelay);
         }
@@ -98,36 +103,5 @@ public class RangeEnemyController : MonoBehaviour
     private void ResetAttack()
     {
         attackActive = false;
-    }
-
-    public void TakeDamage()
-    {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    //public void OnCollisionEnter(Collision collision)
-    //{
-    //    if(collision.transform.tag == "PlayerBullet")
-    //    {
-    //        health -= 25;
-    //    }
-    //    if (collision.transform.gameObject.GetComponentInParent<SphereCollider>() && collision.transform.tag == "PlayerBullet")
-    //    {
-    //        //SphereCollider objCollider = collision.transform.GetComponent<SphereCollider>();
-    //        health -= 50;
-    //    }
-    //    if (health <= 0)
-    //    {
-    //        //Invoke(nameof(DestroyEnemy), 2f);
-    //        Destroy(gameObject);
-    //    }
-    //}
-
-    public void DestroyEnemy()
-    {
-        Destroy(gameObject);
     }
 }
