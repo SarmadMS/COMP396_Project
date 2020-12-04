@@ -15,6 +15,7 @@ public class M1911_Arms : MonoBehaviour
     [SerializeField] float bulletForce = 400;
     [SerializeField] Transform bulletRotationX;
     [SerializeField] Transform bulletRotationY;
+    [SerializeField] GameObject laser;
 
     private float lt;
     private float rt;
@@ -153,9 +154,21 @@ public class M1911_Arms : MonoBehaviour
             }
         }
 
+        // Laser
+        if (Input.GetButtonUp("P1 Laser"))
+        {
+            if (laser.activeSelf == true)
+            {
+                laser.SetActive(false);
+            }
+            else
+            {
+                laser.SetActive(true);
+            }
+        }
 
-        // Reload
-        if (Input.GetButtonUp("P1 Reload") && isAiming == false)
+            // Reload
+            if (Input.GetButtonUp("P1 Reload") && isAiming == false)
         {
             currentAmmo = magazineSize;
             if (isEmpty == false)
