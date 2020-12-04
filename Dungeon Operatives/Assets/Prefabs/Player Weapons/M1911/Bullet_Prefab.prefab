@@ -193,6 +193,8 @@ MonoBehaviour:
   - {fileID: 4458509032938956, guid: 79927c6543a058b4383885fac101fe2e, type: 3}
   bodyDamage: 25
   headDamage: 50
+  cbodyDamage: 25
+  cheadDamage: 50
 --- !u!1 &1231345400216816
 GameObject:
   m_ObjectHideFlags: 0

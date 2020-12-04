@@ -17,7 +17,8 @@ TagManager:
   - RangeEnemy
   - RangeEnemHead
   - Wall
-  - RangeEnemBody
+  - Enemy
+  - EnemHead
   layers:
   - Default
   - TransparentFX

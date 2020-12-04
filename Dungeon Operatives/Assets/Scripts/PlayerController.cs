@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public float health = 100;
+
     //FPS Movement Variables
     public CharacterController controller;
     public float speed = 12f;

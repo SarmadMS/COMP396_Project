@@ -19,8 +19,10 @@ public class BulletScript : MonoBehaviour
 	public Transform[] metalImpactPrefabs;
 
 	//Damage enemy variables
-	public float bodyDamage = 50;
-	public float headDamage = 75;
+	public float bodyDamage = 25;
+	public float headDamage = 50;
+	//public float cbodyDamage = 25;
+	//public float cheadDamage = 50;
 
 	private void Start()
 	{
@@ -31,6 +33,8 @@ public class BulletScript : MonoBehaviour
 	//If the bullet collides with anything
 	private void OnCollisionEnter(Collision collision)
 	{
+		var rangeEnemy = collision.transform.gameObject;
+		var chaseEnemy = collision.transform.gameObject;
 		//If destroy on impact is false, start 
 		//coroutine with random destroy timer
 		if (!destroyOnImpact)
@@ -58,8 +62,7 @@ public class BulletScript : MonoBehaviour
 		if (collision.transform.tag == "Target")
 		{
 			//Toggle "isHit" on target object
-			collision.transform.gameObject.GetComponent
-				<TargetScript>().isHit = true;
+			collision.transform.gameObject.GetComponent<TargetScript>().isHit = true;
 			//Destroy bullet object
 			Destroy(gameObject);
 		}
@@ -72,53 +75,51 @@ public class BulletScript : MonoBehaviour
 			//Destroy bullet object
 			Destroy(gameObject);
 		}
-		
-		//If bullet collides with "RangeEnemy" tag and "RangedEnemHead" tag
-        if (collision.transform.tag == "RangeEnemy" && collision.gameObject.GetComponent<RangeEnemyController>().rhealth > 1)
-        {
-            collision.transform.gameObject.GetComponent<RangeEnemyController>().rhealth -= bodyDamage;
-        }
 
-        if (collision.transform.tag == "RangeEnemHead" && collision.gameObject.GetComponentInParent<RangeEnemyController>().rhealth > 1)
-        {
-            collision.transform.gameObject.GetComponentInParent<RangeEnemyController>().rhealth -= headDamage;
-        }
-
-        if (collision.transform.gameObject.GetComponentInParent<RangeEnemyController>().rhealth <= 0)
-        {
-            var rangeEnemy = collision.transform.gameObject;
-            Destroy(rangeEnemy.GetComponentInParent<RangeEnemyController>().gameObject);
-			Destroy(rangeEnemy);
-            //Destroy(collision.gameObject);
-        }
-
-
-		//If bullet collides with "ChaseEnemy" tag and "ChaseEnemHead" tag
-  //      if (collision.transform.tag == "ChaseEnemy" && collision.gameObject.GetComponent<ChaseEnemyController>().health > 1)
-		//{
-		//	collision.transform.gameObject.GetComponent<ChaseEnemyController>().health -= bodyDamage;
-		//}
-
-		//if (collision.transform.tag == "ChaseEnemHead" && collision.gameObject.GetComponentInParent<ChaseEnemyController>().health > 1)
-		//{
-		//	collision.transform.gameObject.GetComponentInParent<ChaseEnemyController>().health -= headDamage;
-		//}
-
-		//if (collision.transform.gameObject.GetComponentInParent<ChaseEnemyController>().health <= 0)
-		//{
-  //          var chaseEnemy = collision.transform.gameObject;
-		//	Destroy(chaseEnemy.GetComponentInParent<ChaseEnemyController>().gameObject);
-		//	Destroy(chaseEnemy);
-		//}
-	}
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-		if (hit.transform.tag == "ChaseEnemy" && hit.gameObject.GetComponent<ChaseEnemyController>().health > 1)
+		//If bullet collides with "RangeEnemy" tag and "RangeEnemHead" tag
+		if (collision.transform.tag == "RangeEnemy" && collision.gameObject.GetComponent<RangeEnemyController>().rhealth > 1)
 		{
-			hit.transform.gameObject.GetComponent<ChaseEnemyController>().health -= bodyDamage;
+			collision.transform.gameObject.GetComponent<RangeEnemyController>().rhealth -= bodyDamage;
+			Destroy(gameObject);
 		}
-	}
+		if (collision.transform.tag == "RangeEnemHead" && collision.gameObject.GetComponentInParent<RangeEnemyController>().rhealth > 1)
+		{
+			collision.transform.gameObject.GetComponentInParent<RangeEnemyController>().rhealth -= headDamage;
+			Destroy(gameObject);
+		}
+		
+		if (collision.transform.gameObject.GetComponentInParent<RangeEnemyController>().rhealth <= 0 && (collision.transform.tag == "RangeEnemy" || collision.transform.tag == "RangeEnemHead"))
+		{
+			Destroy(gameObject);
+			Destroy(rangeEnemy.GetComponentInParent<RangeEnemyController>().gameObject);
+			//Destroy(rangeEnemy);
+		}
+        //If bullet collides with "ChaseEnemy" tag and "ChaseEnemHead" tag
+        //if (collision.transform.tag == "ChaseEnemy" && collision.gameObject.GetComponent<ChaseEnemyController>().health > 1)
+        //{
+        //    collision.transform.gameObject.GetComponent<ChaseEnemyController>().health -= bodyDamage;
+        //    Destroy(gameObject);
+        //}
+        //if (collision.transform.tag == "ChaseEnemHead" && collision.gameObject.GetComponentInParent<ChaseEnemyController>().health > 1)
+        //{
+        //    collision.transform.gameObject.GetComponentInParent<ChaseEnemyController>().health -= headDamage;
+        //    Destroy(gameObject);
+        //}
+        //if (collision.transform.gameObject.GetComponent<ChaseEnemyController>().health <= 0)
+        //{
+        //    Destroy(gameObject);
+        //    Destroy(chaseEnemy.GetComponent<ChaseEnemyController>().gameObject);
+        //    Destroy(chaseEnemy);
+        //}
+    }
+
+ //   private void OnControllerColliderHit(ControllerColliderHit hit)
+ //   {
+	//	if (hit.transform.tag == "ChaseEnemy" && hit.gameObject.GetComponent<ChaseEnemyController>().health > 1)
+	//	{
+	//		hit.transform.gameObject.GetComponent<ChaseEnemyController>().health -= bodyDamage;
+	//	}
+	//}
 
     private IEnumerator DestroyTimer () 
 	{

@@ -6,6 +6,7 @@ public class ProjectileController : MonoBehaviour
 {
     public Rigidbody rb;
     private GameObject player;
+    public float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,11 @@ public class ProjectileController : MonoBehaviour
     {
         if(collision.gameObject == player)
         {
-            Destroy(gameObject);
+            collision.transform.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
+        }
+        if(collision.transform.gameObject.GetComponentInChildren<PlayerController>().health <= 0)
+        {
+            Destroy(collision.gameObject);
         }
     }
 

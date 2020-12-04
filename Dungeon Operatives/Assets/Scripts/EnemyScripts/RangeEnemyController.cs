@@ -7,10 +7,10 @@ public class RangeEnemyController : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
     public Transform player;
+    public GameObject damagePlayer;
     public LayerMask whatIsGround, whatIsPlayer;
     public float rhealth = 100;
-    //public Transform head;
-    //public Transform body;
+    public float damage;
 
     //Patrol Variables
     public Vector3 walkPoint;
@@ -31,10 +31,8 @@ public class RangeEnemyController : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        damagePlayer = GameObject.FindGameObjectWithTag("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
-        //TakeDamage();
-        //head = GameObject.FindGameObjectWithTag("RangeEnemHead").transform;
-        //body = GameObject.FindGameObjectWithTag("RangeEnemBody").transform;
     }
 
     // Update is called once per frame
@@ -103,5 +101,20 @@ public class RangeEnemyController : MonoBehaviour
     private void ResetAttack()
     {
         attackActive = false;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject == player)
+        {
+            //collision.transform.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
+            Invoke(nameof(DamagePlayer), attackDelay);
+        }
+    }
+
+    public void DamagePlayer(Collision collision)
+    {
+        collision.transform.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
+        Destroy(gameObject);
     }
 }

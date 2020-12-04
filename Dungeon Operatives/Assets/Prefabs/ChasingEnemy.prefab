@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 8056127439177383302}
   - component: {fileID: 8056127439177383297}
   - component: {fileID: 8056127439177383301}
-  - component: {fileID: 1398097207410881359}
+  - component: {fileID: -7092183844518190911}
   m_Layer: 0
   m_Name: ChasingEnemy
-  m_TagString: ChaseEnemy
+  m_TagString: RangeEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 976b31720675c1a47be763ebf89dc566, type: 2}
+  - {fileID: 2100000, guid: f3ea7e3e248088a4d8c7c7f5e5da224b, type: 2}
+  - {fileID: 2100000, guid: 116a001e432ac6743b6e03982bdc4573, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,7 +96,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -121,7 +122,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1398097207410881359
+--- !u!114 &-7092183844518190911
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,23 +131,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 8056127439177383300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0acd86d36b796b4384b838020fc13c4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f0a3172f98f93a4e90b3d346af53454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 8056127439177383297}
   player: {fileID: 7964969450972492351, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
+  damagePlayer: {fileID: 7964969450972492346, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 512
-  health: 100
+  rhealth: 100
+  damage: 50
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
-  attackDelay: 0.5
+  projectileSpeed: 50
+  attackDelay: 1
+  enemyProjectile: {fileID: 4067145303723025591, guid: 6ddbe78002261b049bd91ff46a979be8, type: 3}
   sightRange: 18
-  attackRange: 2
+  attackRange: 3
   inSightRange: 0
   inAttackRange: 0
 --- !u!1 &8056127440385317777
@@ -163,7 +168,7 @@ GameObject:
   - component: {fileID: 8056127440385317779}
   m_Layer: 0
   m_Name: ChaseHead
-  m_TagString: ChaseEnemHead
+  m_TagString: RangeEnemHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,7 +181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8056127440385317777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.15, z: 0}
+  m_LocalPosition: {x: 0, y: 1.546, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8056127439177383296}
@@ -209,7 +214,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 976b31720675c1a47be763ebf89dc566, type: 2}
+  - {fileID: 2100000, guid: 116a001e432ac6743b6e03982bdc4573, type: 2}
+  - {fileID: 2100000, guid: f1aedf7929598ca43b973543ab41fccd, type: 2}
+  - {fileID: 2100000, guid: f3ea7e3e248088a4d8c7c7f5e5da224b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
