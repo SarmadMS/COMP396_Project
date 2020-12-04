@@ -19,6 +19,8 @@ public class M1911_Arms : MonoBehaviour
 
     private float lt;
     private float rt;
+    private float dPad_v;
+    private float dPad_h;
     private bool isFired = false;
     private bool isEmpty = false;
     private bool isReloading = false;
@@ -50,7 +52,8 @@ public class M1911_Arms : MonoBehaviour
 
     [Header("Audio Source")]
     //Main audio source
-    public AudioSource mainAudioSource;
+    public AudioSource gunAudioSource;
+    public AudioSource mainCameraAudioSource;
 
     [System.Serializable]
     public class soundClips
@@ -61,16 +64,33 @@ public class M1911_Arms : MonoBehaviour
         public AudioClip reloadSoundOutOfAmmo;
         public AudioClip reloadSoundAmmoLeft;
         //public AudioClip aimSound;
+
+        // ----- Low Poly FPS Pack Free Version -----
+
+        public AudioClip p1_1_round;
+        public AudioClip p1_2_rounds;
+        public AudioClip p1_3_rounds;
+        public AudioClip p1_4_rounds;
+        public AudioClip p1_5_rounds;
+        public AudioClip p1_6_rounds;
+        public AudioClip p1_7_rounds;
+        public AudioClip p1_8_rounds;
+        public AudioClip p1_Need_to_reload;
+        public AudioClip p1_Lets_go;
+        public AudioClip p1_Wait;
+        public AudioClip p1_All_clear;
+        public AudioClip p1_Over_there;
+        public AudioClip p1_I_need_help_over_here;
     }
     public soundClips SoundClips;
-    // ----- Low Poly FPS Pack Free Version -----
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        mainAudioSource.clip = SoundClips.takeOutSound;
-        mainAudioSource.Play();
+        gunAudioSource.clip = SoundClips.takeOutSound;
+        gunAudioSource.Play();
 
         anim = GetComponent<Animator>();
     }
@@ -80,6 +100,9 @@ public class M1911_Arms : MonoBehaviour
     {
         lt = Input.GetAxis("P1 Aim");
         rt = Input.GetAxis("P1 Fire");
+        dPad_v = Input.GetAxis("P1 D-pad Vertical");
+        dPad_h = Input.GetAxis("P1 D-pad Horizontal");
+
 
         //If randomize muzzleflash is true, genereate random int values
         if (randomMuzzleflash == true)
@@ -90,16 +113,16 @@ public class M1911_Arms : MonoBehaviour
         // Fire
         if (rt == 1 && isFired == false && currentAmmo >= 2 && isReloading == false && isAiming == false)
         {
-            mainAudioSource.clip = SoundClips.shootSound;
-            mainAudioSource.Play();
+            gunAudioSource.clip = SoundClips.shootSound;
+            gunAudioSource.Play();
             currentAmmo--;
             isFired = true;
             anim.SetTrigger("Not Aiming Fire");
         }
         else if (rt == 1 && isFired == false && currentAmmo == 1 && isReloading == false && isAiming == false)
         {
-            mainAudioSource.clip = SoundClips.shootSound;
-            mainAudioSource.Play();
+            gunAudioSource.clip = SoundClips.shootSound;
+            gunAudioSource.Play();
             currentAmmo--;
             isFired = true;
             isEmpty = true;
@@ -107,16 +130,16 @@ public class M1911_Arms : MonoBehaviour
         }
         else if (rt == 1 && isFired == false && currentAmmo >= 2 && isReloading == false && isAiming == true)
         {
-            mainAudioSource.clip = SoundClips.shootSound;
-            mainAudioSource.Play();
+            gunAudioSource.clip = SoundClips.shootSound;
+            gunAudioSource.Play();
             currentAmmo--;
             isFired = true;
             anim.SetTrigger("Aim Fire");
         }
         else if (rt == 1 && isFired == false && currentAmmo == 1 && isReloading == false && isAiming == true)
         {
-            mainAudioSource.clip = SoundClips.shootSound;
-            mainAudioSource.Play();
+            gunAudioSource.clip = SoundClips.shootSound;
+            gunAudioSource.Play();
             currentAmmo--;
             isFired = true;
             isEmpty = true;
@@ -167,8 +190,82 @@ public class M1911_Arms : MonoBehaviour
             }
         }
 
-            // Reload
-            if (Input.GetButtonUp("P1 Reload") && isAiming == false)
+        // Over there
+        if (Input.GetButtonUp("P1 Over there"))
+        {
+            mainCameraAudioSource.clip = SoundClips.p1_Over_there;
+            mainCameraAudioSource.Play();
+        }
+
+        // D=pad Vertical
+        if (dPad_v == 1)
+        {
+            mainCameraAudioSource.clip = SoundClips.p1_Lets_go;
+            mainCameraAudioSource.Play();
+        }
+        else if (dPad_v == -1)
+        {
+            mainCameraAudioSource.clip = SoundClips.p1_Wait;
+            mainCameraAudioSource.Play();
+        }
+
+        // D=pad Horizontal
+        if (dPad_h == -1)
+        {
+            mainCameraAudioSource.clip = SoundClips.p1_All_clear;
+            mainCameraAudioSource.Play();
+        }
+        else if (dPad_h == 1)
+        {
+            if (currentAmmo == 8)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_8_rounds;
+                mainCameraAudioSource.Play();
+            }
+            else if (currentAmmo == 7)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_7_rounds;
+                mainCameraAudioSource.Play();
+            }
+            else if (currentAmmo == 6)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_6_rounds;
+                mainCameraAudioSource.Play();
+            }
+            else if (currentAmmo == 5)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_5_rounds;
+                mainCameraAudioSource.Play();
+            }
+            else if (currentAmmo == 4)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_4_rounds;
+                mainCameraAudioSource.Play();
+            }
+            else if (currentAmmo == 3)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_3_rounds;
+                mainCameraAudioSource.Play();
+            }
+            else if (currentAmmo == 2)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_2_rounds;
+                mainCameraAudioSource.Play();
+            }
+            else if (currentAmmo == 1)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_1_round;
+                mainCameraAudioSource.Play();
+            }
+            else if (currentAmmo == 0)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_Need_to_reload;
+                mainCameraAudioSource.Play();
+            }
+        }
+
+        // Reload
+        if (Input.GetButtonUp("P1 Reload") && isAiming == false)
         {
             currentAmmo = magazineSize;
             if (isEmpty == false)
@@ -204,8 +301,8 @@ public class M1911_Arms : MonoBehaviour
     {
         if (isReloading == false)
         {
-            mainAudioSource.clip = SoundClips.reloadSoundAmmoLeft;
-            mainAudioSource.Play();
+            gunAudioSource.clip = SoundClips.reloadSoundAmmoLeft;
+            gunAudioSource.Play();
             isReloading = true;
         }
         else
