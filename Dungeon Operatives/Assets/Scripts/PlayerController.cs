@@ -32,9 +32,20 @@ public class PlayerController : MonoBehaviour
     private bool isSprintingReady = true;
     private float sprintStartTime;
 
+    [SerializeField] public AudioSource mainCameraAudioSource;
+
+    [System.Serializable]
+    public class soundClips
+    {
+        public AudioClip p1_Watch_where;
+        public AudioClip p1_Hey_knock_it_off;
+        public AudioClip p1_Are_you_blind;
+    }
+    public soundClips SoundClips;
+
     void Start()
     {
-       rbody = GetComponent<Rigidbody>();
+        rbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
