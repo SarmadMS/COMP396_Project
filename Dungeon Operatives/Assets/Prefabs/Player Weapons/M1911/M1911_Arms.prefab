@@ -12399,6 +12399,11 @@ MonoBehaviour:
     p1_All_clear: {fileID: 8300000, guid: e0991a02a57db1440b8bbd474a278c19, type: 3}
     p1_Over_there: {fileID: 8300000, guid: 8b0e86fce6f1cbd41a94d25f296e8325, type: 3}
     p1_I_need_help_over_here: {fileID: 8300000, guid: 0a3c0f6d06d3b4848bb9843cd27f3b8f, type: 3}
+    p1_Keep_your_guard_up: {fileID: 8300000, guid: 999d33edf4c0c0340aeaf4e670a19a02, type: 3}
+    p1_The_main_objective: {fileID: 8300000, guid: 5e9429c7015f00749b2b8db5652d310e, type: 3}
+    p1_Check_the_area: {fileID: 8300000, guid: c4a09801407c7fc4690a2dbe5582faa0, type: 3}
+    p1_We_need_a_plan: {fileID: 8300000, guid: 3b56a6a72d5800644a936a80d23168df, type: 3}
+    p1_Ill_Take_point: {fileID: 8300000, guid: 86edf64a590752a44976c514af60647d, type: 3}
 --- !u!114 &3706205106298398941
 MonoBehaviour:
   m_ObjectHideFlags: 0
