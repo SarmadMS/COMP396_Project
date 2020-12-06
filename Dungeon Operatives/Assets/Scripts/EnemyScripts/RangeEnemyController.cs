@@ -82,8 +82,7 @@ public class RangeEnemyController : MonoBehaviour
     //Attacks Player Function
     private void Attack()
     {
-        //
-        Debug.Log("Attacking Player");
+        //Debug.Log("Attacking Player");
         navMeshAgent.SetDestination(transform.position);
         transform.LookAt(player);
         if (!attackActive)
