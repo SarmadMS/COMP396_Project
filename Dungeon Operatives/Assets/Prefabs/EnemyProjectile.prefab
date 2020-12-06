@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 644154536210330835}
   - component: {fileID: 7791433507191460411}
   - component: {fileID: 8261581847852970774}
-  - component: {fileID: -3725995795070476142}
+  - component: {fileID: 5610112328098968558}
   m_Layer: 0
   m_Name: EnemyProjectile
   m_TagString: Projectile
@@ -114,7 +114,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &-3725995795070476142
+--- !u!114 &5610112328098968558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,4 +127,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 8261581847852970774}
-  damage: 30
+  damage: 0

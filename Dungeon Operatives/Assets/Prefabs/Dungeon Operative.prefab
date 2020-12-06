@@ -91,7 +91,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1648220284253310670}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b1338ce29455d498e74c34cb06a56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 150
+  health: 100
   controller: {fileID: 7964969450972492349}
   speed: 12
   gravity: -9.81
@@ -222,6 +222,11 @@ MonoBehaviour:
     m_Bits: 256
   mouseSensitivity: 200
   playerBody: {fileID: 7964969450972492351}
+  mainCameraAudioSource: {fileID: 1386280154872456539}
+  SoundClips:
+    p1_Watch_where: {fileID: 8300000, guid: 072af37f6e102ff4085eff221f19a059, type: 3}
+    p1_Hey_knock_it_off: {fileID: 8300000, guid: 577c1e7f56161c248a4ab01e13d4a21b, type: 3}
+    p1_Are_you_blind: {fileID: 8300000, guid: 5e7415c271c2575478e66d79b017dca9, type: 3}
 --- !u!1 &7964969450467058913
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,5 +657,10 @@ PrefabInstance:
 --- !u!4 &7106278074811645176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3706205104568769633, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
+  m_PrefabInstance: {fileID: 5904649751324057753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1386280154872456539 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4813373690888340930, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
   m_PrefabInstance: {fileID: 5904649751324057753}
   m_PrefabAsset: {fileID: 0}
