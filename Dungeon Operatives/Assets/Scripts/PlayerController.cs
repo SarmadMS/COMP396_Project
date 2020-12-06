@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float health = 100;
+    public int health = 100;
 
     //FPS Movement Variables
     public CharacterController controller;
@@ -119,5 +119,10 @@ public class PlayerController : MonoBehaviour
     void SprintingCooldown()
     {
         isSprintingReady = true;
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }

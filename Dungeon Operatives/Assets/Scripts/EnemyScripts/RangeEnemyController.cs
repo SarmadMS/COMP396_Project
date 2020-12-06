@@ -10,7 +10,7 @@ public class RangeEnemyController : MonoBehaviour
     public GameObject damagePlayer;
     public LayerMask whatIsGround, whatIsPlayer;
     public float rhealth = 100;
-    public float damage;
+    public int damage;
 
     //Patrol Variables
     public Vector3 walkPoint;

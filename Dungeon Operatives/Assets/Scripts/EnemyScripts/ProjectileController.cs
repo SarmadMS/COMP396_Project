@@ -6,7 +6,7 @@ public class ProjectileController : MonoBehaviour
 {
     public Rigidbody rb;
     private GameObject player;
-    public float damage;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()

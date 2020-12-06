@@ -28,6 +28,8 @@ public class M1911_Arms : MonoBehaviour
     private bool isAiming = false;
 
     private Animator anim;
+    private PlayerController playerController;
+
 
     // ----- Low Poly FPS Pack Free Version -----
     [Header("Muzzleflash Settings")]
@@ -88,6 +90,12 @@ public class M1911_Arms : MonoBehaviour
         public AudioClip p1_Check_the_area;
         public AudioClip p1_We_need_a_plan;
         public AudioClip p1_Ill_Take_point;
+
+        public AudioClip p1_Im_good;
+        public AudioClip p1_Im_okay;
+        public AudioClip p1_Not_great;
+        public AudioClip p1_Its_bad;
+        public AudioClip p1_I_dont_think;
     }
     public soundClips SoundClips;
     
@@ -100,6 +108,7 @@ public class M1911_Arms : MonoBehaviour
         gunAudioSource.Play();
 
         anim = GetComponent<Animator>();
+        playerController = GameObject.Find("Dungeon Operative").transform.Find("Camera").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -204,8 +213,43 @@ public class M1911_Arms : MonoBehaviour
             mainCameraAudioSource.Play();
         }
 
-        // D=pad Vertical
-        if (dPad_v == 1)
+        // Health
+        if (Input.GetButtonUp("P1 Health"))
+        {
+            // 100 - 81->I'm good
+            if (playerController.GetHealth() > 80 && playerController.GetHealth() <= 100)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_Im_good;
+                mainCameraAudioSource.Play();
+            }
+            // 80 - 61 ->  I'm okay
+            else if (playerController.GetHealth() > 60 && playerController.GetHealth() <= 80)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_Im_okay;
+                mainCameraAudioSource.Play();
+            }
+            // 60 - 41 -> Not great
+            else if (playerController.GetHealth() > 40 && playerController.GetHealth() <= 60)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_Not_great;
+                mainCameraAudioSource.Play();
+            }
+            // 40 - 21 -> It's bad
+            else if (playerController.GetHealth() > 20 && playerController.GetHealth() <= 40)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_Its_bad;
+                mainCameraAudioSource.Play();
+            }
+            // 20 - 0 -> I don't think I'm gonna make it
+            else if (playerController.GetHealth() > 0 && playerController.GetHealth() <= 20)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_I_dont_think;
+                mainCameraAudioSource.Play();
+            }
+        }
+
+            // D=pad Vertical
+            if (dPad_v == 1)
         {
             mainCameraAudioSource.clip = SoundClips.p1_Lets_go;
             mainCameraAudioSource.Play();

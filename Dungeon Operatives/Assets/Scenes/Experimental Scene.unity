@@ -13686,10 +13686,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6758276877764513114, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7964969450972492346, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
       propertyPath: m_Name
       value: Dungeon Operative
@@ -13739,28 +13735,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8954455339181019880, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
-      propertyPath: mainCameraAudioSource
-      value: 
-      objectReference: {fileID: 2040861586}
-    - target: {fileID: 8954455339181019880, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
-      propertyPath: SoundClips.p1_Watch_where
-      value: 
-      objectReference: {fileID: 8300000, guid: 072af37f6e102ff4085eff221f19a059, type: 3}
-    - target: {fileID: 8954455339181019880, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
-      propertyPath: SoundClips.p1_Hey_knock_it_off
-      value: 
-      objectReference: {fileID: 8300000, guid: 577c1e7f56161c248a4ab01e13d4a21b, type: 3}
-    - target: {fileID: 8954455339181019880, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
-      propertyPath: SoundClips.p1_Are_you_blind
-      value: 
-      objectReference: {fileID: 8300000, guid: 5e7415c271c2575478e66d79b017dca9, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
---- !u!82 &2040861586 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1386280154872456539, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
-  m_PrefabInstance: {fileID: 2040861585}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2051783887
 GameObject:
   m_ObjectHideFlags: 0
