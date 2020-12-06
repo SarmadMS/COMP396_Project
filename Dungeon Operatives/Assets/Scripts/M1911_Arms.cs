@@ -21,6 +21,7 @@ public class M1911_Arms : MonoBehaviour
     private float rt;
     private float dPad_v;
     private float dPad_h;
+    private int rand;
     private bool isFired = false;
     private bool isEmpty = false;
     private bool isReloading = false;
@@ -81,6 +82,12 @@ public class M1911_Arms : MonoBehaviour
         public AudioClip p1_All_clear;
         public AudioClip p1_Over_there;
         public AudioClip p1_I_need_help_over_here;
+
+        public AudioClip p1_Keep_your_guard_up;
+        public AudioClip p1_The_main_objective;
+        public AudioClip p1_Check_the_area;
+        public AudioClip p1_We_need_a_plan;
+        public AudioClip p1_Ill_Take_point;
     }
     public soundClips SoundClips;
     
@@ -264,8 +271,40 @@ public class M1911_Arms : MonoBehaviour
             }
         }
 
-        // Reload
-        if (Input.GetButtonUp("P1 Reload") && isAiming == false)
+        // Character lines
+        if (Input.GetButtonUp("P1 Character lines"))
+        {
+            rand = Random.Range(1, 6);
+
+            if (rand == 1)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_Keep_your_guard_up;
+                mainCameraAudioSource.Play();
+            }
+            else if (rand == 2)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_The_main_objective;
+                mainCameraAudioSource.Play();
+            }
+            else if (rand == 3)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_Check_the_area;
+                mainCameraAudioSource.Play();
+            }
+            else if (rand == 4)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_We_need_a_plan;
+                mainCameraAudioSource.Play();
+            }
+            else if (rand == 5)
+            {
+                mainCameraAudioSource.clip = SoundClips.p1_Ill_Take_point;
+                mainCameraAudioSource.Play();
+            }
+}
+
+            // Reload
+            if (Input.GetButtonUp("P1 Reload") && isAiming == false)
         {
             currentAmmo = magazineSize;
             if (isEmpty == false)
@@ -330,7 +369,7 @@ public class M1911_Arms : MonoBehaviour
 
     void NotAimSpawnBullet()
     {             
-        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.Euler(transform.eulerAngles.x + Random.Range(-5, 5), transform.eulerAngles.y + Random.Range(-5, 5), 0));
+        var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.Euler(transform.eulerAngles.x + Random.Range(-5, 6), transform.eulerAngles.y + Random.Range(-5, 6), 0));
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletForce; 
         MuzzleVFX();
     }
