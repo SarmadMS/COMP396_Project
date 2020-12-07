@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 8056127439177383297}
   player: {fileID: 7964969450972492351, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
-  damagePlayer: {fileID: 7964969450972492346, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
+  player2: {fileID: 7964969450972492351, guid: 646e60cb7b7a58249b6473778780bbc6, type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -146,7 +146,7 @@ MonoBehaviour:
   rhealth: 100
   damage: 25
   healthDrop: {fileID: 4511235657855795086, guid: 4fab71f7dd3aac440b1437f344b7ea32, type: 3}
-  dropsHealth: 0
+  dropsHealth: 1
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   projectileSpeed: 50

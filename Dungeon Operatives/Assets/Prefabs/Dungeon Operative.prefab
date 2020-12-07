@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 7964969449909596433}
   - component: {fileID: 7964969449909596435}
   - component: {fileID: 7964969449909596432}
-  - component: {fileID: 3642442093037455133}
+  - component: {fileID: 6906415273794568313}
   - component: {fileID: 8954455339181019880}
   m_Layer: 9
   m_Name: Camera
@@ -182,7 +182,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7964969449909596654}
   m_Enabled: 0
---- !u!54 &3642442093037455133
+--- !u!54 &6906415273794568313
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,7 +192,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.02
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  isDead: 0
   controller: {fileID: 7964969450972492349}
   speed: 12
   gravity: -9.81
@@ -419,6 +420,10 @@ PrefabInstance:
     - target: {fileID: 3706205104753402568, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706205104753402570, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3706205104798520046, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
       propertyPath: m_Layer

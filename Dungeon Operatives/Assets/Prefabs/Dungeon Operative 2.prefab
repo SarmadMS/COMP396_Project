@@ -420,6 +420,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3706205104753402570, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3706205104753402570, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
+      propertyPath: m_NormalizedViewPortRect.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3706205104798520046, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
       propertyPath: m_Layer
       value: 9

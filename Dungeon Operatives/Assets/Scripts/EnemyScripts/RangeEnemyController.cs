@@ -7,7 +7,7 @@ public class RangeEnemyController : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
     public Transform player;
-    public GameObject damagePlayer;
+    public Transform player2;
     public LayerMask whatIsGround, whatIsPlayer;
     public float rhealth = 100;
     public int damage;
@@ -33,7 +33,7 @@ public class RangeEnemyController : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        damagePlayer = GameObject.FindGameObjectWithTag("Player");
+        player2 = GameObject.FindGameObjectWithTag("Player2").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
