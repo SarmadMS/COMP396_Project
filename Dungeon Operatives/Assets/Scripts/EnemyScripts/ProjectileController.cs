@@ -7,7 +7,6 @@ public class ProjectileController : MonoBehaviour
     public Rigidbody rb;
     private GameObject player;
     public int damage;
-    public int damage1;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +42,7 @@ public class ProjectileController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Wall")
+        if (other.gameObject.tag == "Metal")
         {
             Destroy(gameObject);
         }

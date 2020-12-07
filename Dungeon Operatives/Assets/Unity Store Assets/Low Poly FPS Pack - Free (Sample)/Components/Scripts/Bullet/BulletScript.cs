@@ -21,6 +21,7 @@ public class BulletScript : MonoBehaviour
 	//Damage enemy variables
 	public float bodyDamage = 25;
 	public float headDamage = 50;
+    public GameObject healthDrop;
     //public float cbodyDamage = 25;
     //public float cheadDamage = 50;
 
@@ -90,6 +91,7 @@ public class BulletScript : MonoBehaviour
 
         if (collision.transform.gameObject.GetComponentInParent<RangeEnemyController>().rhealth <= 0 && (collision.transform.tag == "RangeEnemy" || collision.transform.tag == "RangeEnemHead"))
         {
+            Instantiate(healthDrop, transform.localPosition, Quaternion.Euler(-90,0,0));
             Destroy(gameObject);
             Destroy(rangeEnemy.GetComponentInParent<RangeEnemyController>().gameObject);
             //Destroy(rangeEnemy);

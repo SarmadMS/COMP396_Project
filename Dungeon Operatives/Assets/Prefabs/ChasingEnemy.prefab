@@ -144,7 +144,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   rhealth: 100
-  damage: 50
+  damage: 25
+  healthDrop: {fileID: 4511235657855795086, guid: 4fab71f7dd3aac440b1437f344b7ea32, type: 3}
+  dropsHealth: 0
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
   projectileSpeed: 50

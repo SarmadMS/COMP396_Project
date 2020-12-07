@@ -11,6 +11,8 @@ public class RangeEnemyController : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
     public float rhealth = 100;
     public int damage;
+    public GameObject healthDrop;
+    public bool dropsHealth;
 
     //Patrol Variables
     public Vector3 walkPoint;
@@ -88,7 +90,7 @@ public class RangeEnemyController : MonoBehaviour
         if (!attackActive)
         {
             //Instantiate Enemy projectile
-            Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.Euler(-90,0,0)).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
             //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
@@ -100,6 +102,16 @@ public class RangeEnemyController : MonoBehaviour
     private void ResetAttack()
     {
         attackActive = false;
+    }
+    
+    public void Enemydead()
+    {
+        if (rhealth <= 0) HealthDrop();
+    }
+    void HealthDrop()
+    {
+        if (dropsHealth) Instantiate(healthDrop, transform.position, transform.rotation);
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -116,4 +128,6 @@ public class RangeEnemyController : MonoBehaviour
         collision.transform.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
         Destroy(gameObject);
     }
+
+    
 }

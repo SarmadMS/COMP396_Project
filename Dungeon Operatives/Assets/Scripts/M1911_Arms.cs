@@ -217,7 +217,7 @@ public class M1911_Arms : MonoBehaviour
         if (Input.GetButtonUp("P1 Health"))
         {
             // 100 - 81->I'm good
-            if (playerController.GetHealth() > 80 && playerController.GetHealth() <= 100)
+            if (playerController.GetHealth() > 80)
             {
                 mainCameraAudioSource.clip = SoundClips.p1_Im_good;
                 mainCameraAudioSource.Play();

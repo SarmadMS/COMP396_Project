@@ -19,6 +19,7 @@ TagManager:
   - Wall
   - Enemy
   - EnemHead
+  - FinishStar
   layers:
   - Default
   - TransparentFX
