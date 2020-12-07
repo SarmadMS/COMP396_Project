@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public int health = 100;
+    public bool isDead;
 
     //FPS Movement Variables
     public CharacterController controller;
@@ -124,5 +125,24 @@ public class PlayerController : MonoBehaviour
     public int GetHealth()
     {
         return health;
+    }
+
+    public void DamagePlayer(int damage)
+    {
+        if (health > 0)
+        {
+            health -= damage;
+        }
+        else
+        {
+            Dead();
+        }
+    }
+
+    public void Dead()
+    {
+        health = 0;
+        isDead = true;
+        Debug.Log("Player is Dead");
     }
 }

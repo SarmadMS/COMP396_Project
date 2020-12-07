@@ -20,6 +20,7 @@ TagManager:
   - Enemy
   - EnemHead
   - FinishStar
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Ground
   - Player
   - Metal
-  - 
+  - Player2
   - 
   - 
   - 

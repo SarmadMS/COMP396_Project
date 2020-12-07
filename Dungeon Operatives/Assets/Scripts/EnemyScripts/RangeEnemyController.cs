@@ -90,7 +90,7 @@ public class RangeEnemyController : MonoBehaviour
         if (!attackActive)
         {
             //Instantiate Enemy projectile
-            Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.Euler(-90,0,0)).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
             //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 

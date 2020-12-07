@@ -6,13 +6,15 @@ public class ProjectileController : MonoBehaviour
 {
     public Rigidbody rb;
     private GameObject player;
+    private GameObject player2;
     public int damage;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindWithTag("Player");
+        player2 = GameObject.FindWithTag("Player2");
     }
 
     // Update is called once per frame
@@ -21,26 +23,35 @@ public class ProjectileController : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         damage = Random.Range(15, 25);
         if(collision.gameObject == player)
         {
             collision.transform.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
-            Debug.Log("Ranged Enemy dealt " + damage + " damage");
+            Destroy(gameObject);
+            Debug.Log("Enemy dealt " + damage + " damage to Player 1");
         }
-        //if (collision.gameObject == player && collision.transform.gameObject.GetComponentInParent<RangeEnemyController>().attackRange == 3)
-        //{
-        //    collision.transform.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
-        //    Debug.Log("Chasing Enemy dealt " + damage);
-        //}
-        if(collision.transform.gameObject.GetComponentInChildren<PlayerController>().health <= 0)
+        else if (collision.gameObject == player2)
         {
+            collision.transform.gameObject.GetComponentInChildren<Player2Controller>().health -= damage;
+            Destroy(gameObject);
+            Debug.Log("Enemy dealt " + damage + " damage to Player 2");
+        }
+        if (collision.transform.gameObject.GetComponentInChildren<Player2Controller>().health <= 0)
+        {
+            Destroy(gameObject);
             Destroy(collision.gameObject);
         }
+        else if(collision.transform.gameObject.GetComponentInChildren<PlayerController>().health <= 0)
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
+        //|| collision.transform.gameObject.GetComponentInChildren<Player2Controller>().health <= 0
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Metal")
         {
