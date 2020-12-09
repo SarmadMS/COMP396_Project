@@ -70,32 +70,37 @@ public class M1911_Arms2 : MonoBehaviour
 
         // ----- Low Poly FPS Pack Free Version -----
 
-        public AudioClip p1_1_round;
-        public AudioClip p1_2_rounds;
-        public AudioClip p1_3_rounds;
-        public AudioClip p1_4_rounds;
-        public AudioClip p1_5_rounds;
-        public AudioClip p1_6_rounds;
-        public AudioClip p1_7_rounds;
-        public AudioClip p1_8_rounds;
-        public AudioClip p1_Need_to_reload;
-        public AudioClip p1_Lets_go;
-        public AudioClip p1_Wait;
-        public AudioClip p1_All_clear;
-        public AudioClip p1_Over_there;
-        public AudioClip p1_I_need_help_over_here;
+        public AudioClip p2_1_round;
+        public AudioClip p2_2_rounds;
+        public AudioClip p2_3_rounds;
+        public AudioClip p2_4_rounds;
+        public AudioClip p2_5_rounds;
+        public AudioClip p2_6_rounds;
+        public AudioClip p2_7_rounds;
+        public AudioClip p2_8_rounds;
+        public AudioClip p2_Need_to_reload;
+        public AudioClip p2_Lets_go;
+        public AudioClip p2_Wait;
+        public AudioClip p2_All_clear;
+        public AudioClip p2_Over_there;
+        public AudioClip p2_I_need_help_over_here;
 
-        public AudioClip p1_Keep_your_guard_up;
-        public AudioClip p1_The_main_objective;
-        public AudioClip p1_Check_the_area;
-        public AudioClip p1_We_need_a_plan;
-        public AudioClip p1_Ill_Take_point;
+        public AudioClip p2_Just_watch_my_6;      // Just watch my 6!
+        public AudioClip p2_Lets_just_get_this;   // Let's just get this over with!
+        public AudioClip p2_Oh_please;            // Oh please.You thought that was difficult!
+        public AudioClip p2_Rot_in_hell;          // Rot in hell!
+        public AudioClip p2_Youve_got;            // You've got to be kidding me!
 
-        public AudioClip p1_Im_good;
-        public AudioClip p1_Im_okay;
-        public AudioClip p1_Not_great;
-        public AudioClip p1_Its_bad;
-        public AudioClip p1_I_dont_think;
+        public AudioClip p2_Im_good;
+        public AudioClip p2_Im_okay;
+        public AudioClip p2_Not_great;
+        public AudioClip p2_Its_bad;
+        public AudioClip p2_I_dont_think;
+
+        // Friendly fire lines:
+        // Shoot at me again, and the next bullet's yours!
+        // Am I invisible or something!
+        // 2 can play at that game!
     }
     public soundClips SoundClips;
     
@@ -209,7 +214,7 @@ public class M1911_Arms2 : MonoBehaviour
         // Over there
         if (Input.GetButtonUp("P2 Over there"))
         {
-            mainCameraAudioSource.clip = SoundClips.p1_Over_there;
+            mainCameraAudioSource.clip = SoundClips.p2_Over_there;
             mainCameraAudioSource.Play();
         }
 
@@ -219,31 +224,31 @@ public class M1911_Arms2 : MonoBehaviour
             // 100 - 81->I'm good
             if (playerController.GetHealth() > 80)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_Im_good;
+                mainCameraAudioSource.clip = SoundClips.p2_Im_good;
                 mainCameraAudioSource.Play();
             }
             // 80 - 61 ->  I'm okay
             else if (playerController.GetHealth() > 60 && playerController.GetHealth() <= 80)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_Im_okay;
+                mainCameraAudioSource.clip = SoundClips.p2_Im_okay;
                 mainCameraAudioSource.Play();
             }
             // 60 - 41 -> Not great
             else if (playerController.GetHealth() > 40 && playerController.GetHealth() <= 60)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_Not_great;
+                mainCameraAudioSource.clip = SoundClips.p2_Not_great;
                 mainCameraAudioSource.Play();
             }
             // 40 - 21 -> It's bad
             else if (playerController.GetHealth() > 20 && playerController.GetHealth() <= 40)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_Its_bad;
+                mainCameraAudioSource.clip = SoundClips.p2_Its_bad;
                 mainCameraAudioSource.Play();
             }
             // 20 - 0 -> I don't think I'm gonna make it
             else if (playerController.GetHealth() > 0 && playerController.GetHealth() <= 20)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_I_dont_think;
+                mainCameraAudioSource.clip = SoundClips.p2_I_dont_think;
                 mainCameraAudioSource.Play();
             }
         }
@@ -251,66 +256,66 @@ public class M1911_Arms2 : MonoBehaviour
             // D=pad Vertical
             if (dPad_v == 1)
         {
-            mainCameraAudioSource.clip = SoundClips.p1_Lets_go;
+            mainCameraAudioSource.clip = SoundClips.p2_Lets_go;
             mainCameraAudioSource.Play();
         }
         else if (dPad_v == -1)
         {
-            mainCameraAudioSource.clip = SoundClips.p1_Wait;
+            mainCameraAudioSource.clip = SoundClips.p2_Wait;
             mainCameraAudioSource.Play();
         }
 
         // D=pad Horizontal
         if (dPad_h == -1)
         {
-            mainCameraAudioSource.clip = SoundClips.p1_All_clear;
+            mainCameraAudioSource.clip = SoundClips.p2_All_clear;
             mainCameraAudioSource.Play();
         }
         else if (dPad_h == 1)
         {
             if (currentAmmo == 8)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_8_rounds;
+                mainCameraAudioSource.clip = SoundClips.p2_8_rounds;
                 mainCameraAudioSource.Play();
             }
             else if (currentAmmo == 7)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_7_rounds;
+                mainCameraAudioSource.clip = SoundClips.p2_7_rounds;
                 mainCameraAudioSource.Play();
             }
             else if (currentAmmo == 6)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_6_rounds;
+                mainCameraAudioSource.clip = SoundClips.p2_6_rounds;
                 mainCameraAudioSource.Play();
             }
             else if (currentAmmo == 5)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_5_rounds;
+                mainCameraAudioSource.clip = SoundClips.p2_5_rounds;
                 mainCameraAudioSource.Play();
             }
             else if (currentAmmo == 4)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_4_rounds;
+                mainCameraAudioSource.clip = SoundClips.p2_4_rounds;
                 mainCameraAudioSource.Play();
             }
             else if (currentAmmo == 3)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_3_rounds;
+                mainCameraAudioSource.clip = SoundClips.p2_3_rounds;
                 mainCameraAudioSource.Play();
             }
             else if (currentAmmo == 2)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_2_rounds;
+                mainCameraAudioSource.clip = SoundClips.p2_2_rounds;
                 mainCameraAudioSource.Play();
             }
             else if (currentAmmo == 1)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_1_round;
+                mainCameraAudioSource.clip = SoundClips.p2_1_round;
                 mainCameraAudioSource.Play();
             }
             else if (currentAmmo == 0)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_Need_to_reload;
+                mainCameraAudioSource.clip = SoundClips.p2_Need_to_reload;
                 mainCameraAudioSource.Play();
             }
         }
@@ -322,27 +327,27 @@ public class M1911_Arms2 : MonoBehaviour
 
             if (rand == 1)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_Keep_your_guard_up;
+                mainCameraAudioSource.clip = SoundClips.p2_Oh_please;
                 mainCameraAudioSource.Play();
             }
             else if (rand == 2)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_The_main_objective;
+                mainCameraAudioSource.clip = SoundClips.p2_Youve_got;
                 mainCameraAudioSource.Play();
             }
             else if (rand == 3)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_Check_the_area;
+                mainCameraAudioSource.clip = SoundClips.p2_Lets_just_get_this;
                 mainCameraAudioSource.Play();
             }
             else if (rand == 4)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_We_need_a_plan;
+                mainCameraAudioSource.clip = SoundClips.p2_Just_watch_my_6;
                 mainCameraAudioSource.Play();
             }
             else if (rand == 5)
             {
-                mainCameraAudioSource.clip = SoundClips.p1_Ill_Take_point;
+                mainCameraAudioSource.clip = SoundClips.p2_Rot_in_hell;
                 mainCameraAudioSource.Play();
             }
 }

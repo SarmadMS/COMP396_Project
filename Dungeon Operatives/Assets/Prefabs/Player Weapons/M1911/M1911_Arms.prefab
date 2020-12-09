@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 32a76832b79e84347ad9df08b12709c3, type: 2}
+  - {fileID: 2100000, guid: b1b6f833c5d7ba047803c7d954840a6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12299,7 +12299,6 @@ GameObject:
   - component: {fileID: 3706205106298398912}
   - component: {fileID: 3706205106298398940}
   - component: {fileID: 8119084776276763340}
-  - component: {fileID: 4817980984798099529}
   - component: {fileID: 3706205106298398941}
   - component: {fileID: 3706205106298398914}
   m_Layer: 8
@@ -12385,7 +12384,7 @@ MonoBehaviour:
     shootSound: {fileID: 8300000, guid: 38b450e2adcb6f542acc8c1d423bd8dc, type: 3}
     takeOutSound: {fileID: 0}
     reloadSoundOutOfAmmo: {fileID: 0}
-    reloadSoundAmmoLeft: {fileID: 0}
+    reloadSoundAmmoLeft: {fileID: 8300000, guid: b0d51244fd32fc647960320540b32f66, type: 3}
     p1_1_round: {fileID: 8300000, guid: 62d8ebcd1266650429c70064ee60c7d9, type: 3}
     p1_2_rounds: {fileID: 8300000, guid: 28026a75f031ed947b11be72920fb7e0, type: 3}
     p1_3_rounds: {fileID: 8300000, guid: eefefea24ba18414f88afb0c4697e4ee, type: 3}
@@ -12410,71 +12409,6 @@ MonoBehaviour:
     p1_Not_great: {fileID: 8300000, guid: dbc4d3adc634f9f45b1d046db6121f75, type: 3}
     p1_Its_bad: {fileID: 8300000, guid: 2b922ef91b63b364f8516b6883caa491, type: 3}
     p1_I_dont_think: {fileID: 8300000, guid: c8ade264f23018c4697490f247c9e96a, type: 3}
---- !u!114 &4817980984798099529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3706205106298398913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c6281e1b27b16b418debe9643fcb5c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentAmmo: 8
-  magazineSize: 8
-  magazinePrefab: {fileID: 556320542479177742, guid: 1fdf05a47207ed54a9ab6e495d90b2c0, type: 3}
-  magazineSpawnPoint: {fileID: 3376287725237504954}
-  casingPrefab: {fileID: 1492315059354262, guid: 8f242c965f69017458e94a1feebf7663, type: 3}
-  casingSpawnPoint: {fileID: 3851916496907465180}
-  bulletPrefab: {fileID: 1086664671600574, guid: 9d34efdb1df0d6d4c8db3c6125a0b877, type: 3}
-  bulletSpawnPoint: {fileID: 8906073770345286357}
-  bulletForce: 400
-  bulletRotationX: {fileID: 0}
-  bulletRotationY: {fileID: 7964969450972492351, guid: 646e60cb7b7a58249b6473778780bbc6, type: 3}
-  laser: {fileID: 0}
-  randomMuzzleflash: 1
-  maxRandomValue: 5
-  enableMuzzleflash: 1
-  muzzleParticles: {fileID: 3706205105460505123}
-  enableSparks: 1
-  sparkParticles: {fileID: 3706205104839942177}
-  minSparkEmission: 1
-  maxSparkEmission: 7
-  muzzleflashLight: {fileID: 3706205106180699650}
-  lightDuration: 0.02
-  gunAudioSource: {fileID: 3706205106298398914}
-  mainCameraAudioSource: {fileID: 4813373690888340930}
-  SoundClips:
-    shootSound: {fileID: 8300000, guid: 38b450e2adcb6f542acc8c1d423bd8dc, type: 3}
-    takeOutSound: {fileID: 0}
-    reloadSoundOutOfAmmo: {fileID: 0}
-    reloadSoundAmmoLeft: {fileID: 0}
-    p1_1_round: {fileID: 0}
-    p1_2_rounds: {fileID: 0}
-    p1_3_rounds: {fileID: 0}
-    p1_4_rounds: {fileID: 0}
-    p1_5_rounds: {fileID: 0}
-    p1_6_rounds: {fileID: 0}
-    p1_7_rounds: {fileID: 0}
-    p1_8_rounds: {fileID: 0}
-    p1_Need_to_reload: {fileID: 0}
-    p1_Lets_go: {fileID: 0}
-    p1_Wait: {fileID: 0}
-    p1_All_clear: {fileID: 0}
-    p1_Over_there: {fileID: 0}
-    p1_I_need_help_over_here: {fileID: 0}
-    p1_Keep_your_guard_up: {fileID: 0}
-    p1_The_main_objective: {fileID: 0}
-    p1_Check_the_area: {fileID: 0}
-    p1_We_need_a_plan: {fileID: 0}
-    p1_Ill_Take_point: {fileID: 0}
-    p1_Im_good: {fileID: 0}
-    p1_Im_okay: {fileID: 0}
-    p1_Not_great: {fileID: 0}
-    p1_Its_bad: {fileID: 0}
-    p1_I_dont_think: {fileID: 0}
 --- !u!114 &3706205106298398941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13175,23 +13109,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
---- !u!4 &3376287725237504954 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2252106284779538191, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
-  m_PrefabInstance: {fileID: 3574711828480953525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3851916496907465180 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 355552178730728809, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
   m_PrefabInstance: {fileID: 3574711828480953525}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8906073770345286357 stripped
+--- !u!4 &3376287725237504954 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5333202726398740064, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2252106284779538191, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
   m_PrefabInstance: {fileID: 3574711828480953525}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &3569794354713785343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4952727429218122, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
+  m_PrefabInstance: {fileID: 3574711828480953525}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8906073770345286357 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5333202726398740064, guid: e2a5de0dc36f8a9479d5fbf84ef5b7c4, type: 3}
   m_PrefabInstance: {fileID: 3574711828480953525}
   m_PrefabAsset: {fileID: 0}

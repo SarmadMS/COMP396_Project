@@ -85,17 +85,22 @@ public class M1911_Arms : MonoBehaviour
         public AudioClip p1_Over_there;
         public AudioClip p1_I_need_help_over_here;
 
-        public AudioClip p1_Keep_your_guard_up;
-        public AudioClip p1_The_main_objective;
-        public AudioClip p1_Check_the_area;
-        public AudioClip p1_We_need_a_plan;
-        public AudioClip p1_Ill_Take_point;
+        public AudioClip p1_Keep_your_guard_up;    // Keep your guard up, you never know what's waiting for us!
+        public AudioClip p1_The_main_objective;    // The main objective takes priority!
+        public AudioClip p1_Check_the_area;        // Check the area for survivors!
+        public AudioClip p1_We_need_a_plan;        // We need a plan!
+        public AudioClip p1_Ill_Take_point;        // I'll Take point!
 
         public AudioClip p1_Im_good;
         public AudioClip p1_Im_okay;
         public AudioClip p1_Not_great;
         public AudioClip p1_Its_bad;
         public AudioClip p1_I_dont_think;
+
+        // Friendly fire lines:
+        // Hey! Knock it off!
+        // Are you blind?
+        // Watch it!
     }
     public soundClips SoundClips;
     
