@@ -45,4 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam1: {fileID: 0}
   playerCam2: {fileID: 0}
-  isHorizontal: 0
+  isSolo: 1
+  isHorizontal: 1
