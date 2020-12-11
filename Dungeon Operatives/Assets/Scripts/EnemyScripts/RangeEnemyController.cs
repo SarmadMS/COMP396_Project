@@ -33,13 +33,15 @@ public class RangeEnemyController : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        player2 = GameObject.FindGameObjectWithTag("Player2").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        //player = GameObject.FindGameObjectWithTag("Player2").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
         //Checks for sight and attack range from player
         inSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         inAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -79,6 +81,12 @@ public class RangeEnemyController : MonoBehaviour
     {
         Debug.Log("Chasing Player");
         navMeshAgent.SetDestination(player.position);
+        if(player = null)
+        {
+            navMeshAgent.SetDestination(player2.position);
+        }
+
+        //navMeshAgent.SetDestination(player2.position);
     }
 
     //Attacks Player Function
@@ -87,6 +95,11 @@ public class RangeEnemyController : MonoBehaviour
         //Debug.Log("Attacking Player");
         navMeshAgent.SetDestination(transform.position);
         transform.LookAt(player);
+        if (player = null)
+        {
+            navMeshAgent.SetDestination(player2.position);
+        }
+
         if (!attackActive)
         {
             //Instantiate Enemy projectile

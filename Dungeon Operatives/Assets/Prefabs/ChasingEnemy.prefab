@@ -142,7 +142,7 @@ MonoBehaviour:
     m_Bits: 256
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 2560
+    m_Bits: 512
   rhealth: 100
   damage: 25
   healthDrop: {fileID: 4511235657855795086, guid: 4fab71f7dd3aac440b1437f344b7ea32, type: 3}
