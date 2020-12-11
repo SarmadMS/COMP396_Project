@@ -8,7 +8,9 @@ public class SplitScreenController : MonoBehaviour
     [SerializeField] GameObject player1, player2;
     [SerializeField] bool isSolo = true;
     [SerializeField] bool isHorizontal = true;
+
     [SerializeField] Transform playerSpawnPoint;
+    [SerializeField] Transform playerSpawnPoint2;
 
     // Start is called before the first frame update
     void Start()
@@ -73,6 +75,6 @@ public class SplitScreenController : MonoBehaviour
 
     public void RespawnPlayer2()
     {
-        Instantiate(player2, playerSpawnPoint.transform);
+        Instantiate(player2, playerSpawnPoint2.transform);
     }
 }

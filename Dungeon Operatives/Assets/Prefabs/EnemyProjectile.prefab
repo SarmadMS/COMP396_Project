@@ -128,3 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 8261581847852970774}
   damage: 15
+  splitScreenController: {fileID: 2263410145181512950, guid: 82147d02fb577de49970a1060fb88081, type: 3}
+  playerDamage: {fileID: 0}
+  player2Damage: {fileID: 0}

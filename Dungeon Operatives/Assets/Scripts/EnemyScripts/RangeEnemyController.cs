@@ -129,7 +129,7 @@ public class RangeEnemyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject == player)
+        if (collision.gameObject.tag == "Player")
         {
             //collision.transform.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
             Invoke(nameof(DamagePlayer), attackDelay);

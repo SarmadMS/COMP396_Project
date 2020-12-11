@@ -9,6 +9,12 @@ public class ProjectileController : MonoBehaviour
     private GameObject player2;
     public int damage;
 
+    public SplitScreenController splitScreenController;
+
+    public PlayerController playerDamage;
+    public Player2Controller player2Damage;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,35 +38,29 @@ public class ProjectileController : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
+            playerDamage.DamagePlayer(damage);
+            //collision.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
             Destroy(gameObject);
             Debug.Log("Enemy dealt " + damage + " damage to Player 1");
         }
         else if (collision.gameObject.tag == "Player2")
         {
-            collision.gameObject.GetComponentInChildren<Player2Controller>().health -= damage;
+            player2Damage.DamagePlayer(damage);
+            //collision.gameObject.GetComponentInChildren<Player2Controller>().health -= damage;
             Destroy(gameObject);
             Debug.Log("Enemy dealt " + damage + " damage to Player 2");
         }
-        if (collision.gameObject.GetComponentInChildren<PlayerController>().health <= 0)
-        {
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
-        }
-        else if (collision.transform.gameObject.GetComponentInChildren<Player2Controller>().health <= 0)
-        {
-            Destroy(gameObject);
-            Destroy(collision.gameObject);
-
-        }
-        //|| collision.transform.gameObject.GetComponentInChildren<Player2Controller>().health <= 0
+        //if (collision.gameObject.GetComponentInChildren<PlayerController>().health <= 0)
+        //{
+        //    Destroy(gameObject);
+        //    Destroy(collision.gameObject);
+        //    Invoke(nameof(splitScreenController.RespawnPlayer1), 3f);
+        //}
+        //else if (collision.transform.gameObject.GetComponentInChildren<Player2Controller>().health <= 0)
+        //{
+        //    Destroy(gameObject);
+        //    Destroy(collision.gameObject);
+        //    Invoke(nameof(splitScreenController.RespawnPlayer2), 3f);
+        //}
     }
-
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.gameObject.tag == "Metal")
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
 }

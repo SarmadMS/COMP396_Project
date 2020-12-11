@@ -50,6 +50,7 @@ public class Player2Controller : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody>();
         splitScreenController = GameObject.Find("SplitScreen").GetComponent<SplitScreenController>();
+
     }
 
     // Update is called once per frame

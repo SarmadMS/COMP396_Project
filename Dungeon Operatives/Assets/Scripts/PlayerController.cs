@@ -132,14 +132,8 @@ public class PlayerController : MonoBehaviour
 
     public void DamagePlayer(int damage)
     {
-        if (health > 0)
-        {
-            health -= damage;
-        }
-        else
-        {
-            Dead();
-        }
+        health -= damage;
+        if (health <= 0) Dead();
     }
 
     public void Dead()
