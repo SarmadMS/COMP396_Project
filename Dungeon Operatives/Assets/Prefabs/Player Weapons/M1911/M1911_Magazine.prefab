@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 570528343440290952}
   - component: {fileID: 205647963}
   - component: {fileID: 205647967}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: M1911_Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}

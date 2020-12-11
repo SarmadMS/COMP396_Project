@@ -10,7 +10,6 @@ public class SplitScreenController : MonoBehaviour
     [SerializeField] bool isHorizontal = true;
 
     [SerializeField] Transform playerSpawnPoint;
-    [SerializeField] Transform playerSpawnPoint2;
 
     // Start is called before the first frame update
     void Start()
@@ -70,11 +69,13 @@ public class SplitScreenController : MonoBehaviour
 
     public void RespawnPlayer1()
     {
-        Instantiate(player1, playerSpawnPoint.transform);
+        player1 = Instantiate(player1, playerSpawnPoint.transform.position, playerSpawnPoint.rotation);
+        player1.name = "Dungeon Operative";
     }
 
     public void RespawnPlayer2()
     {
-        Instantiate(player2, playerSpawnPoint2.transform);
+        player2 = Instantiate(player2, playerSpawnPoint.transform.position, playerSpawnPoint.rotation);
+        player1.name = "Dungeon Operative 2";
     }
 }

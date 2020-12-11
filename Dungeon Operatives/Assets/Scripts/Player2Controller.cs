@@ -149,5 +149,6 @@ public class Player2Controller : MonoBehaviour
         health = 0;
         isDead = true;
         Debug.Log("Player is Dead");
+        Destroy(GameObject.Find("Dungeon Operative 2"));
     }
 }

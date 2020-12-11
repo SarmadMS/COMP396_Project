@@ -168,7 +168,7 @@ public class M1911_Arms2 : MonoBehaviour
         }
 
         if (rt <= 0.5)
-        {
+        {            
             isFired = false;
         }
 

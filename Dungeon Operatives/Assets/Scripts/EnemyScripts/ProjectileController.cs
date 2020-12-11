@@ -19,6 +19,8 @@ public class ProjectileController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerDamage = GameObject.Find("Dungeon Operative/Camera").GetComponent<PlayerController>();
+        player2Damage = GameObject.Find("Dungeon Operative 2/Camera").GetComponent<Player2Controller>();
         //player = GameObject.FindWithTag("Player");
         //player2 = GameObject.FindWithTag("Player2");
     }
