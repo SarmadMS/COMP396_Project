@@ -7,6 +7,7 @@ using UnityEngine;
 public class Player2Controller : MonoBehaviour
 {
     public int health = 100;
+    public bool isDead;
 
     //FPS Movement Variables
     public CharacterController controller;
@@ -32,6 +33,8 @@ public class Player2Controller : MonoBehaviour
     private bool isSprintingReady = true;
     private float sprintStartTime;
 
+    private SplitScreenController splitScreenController;
+
     [SerializeField] public AudioSource mainCameraAudioSource;
 
     [System.Serializable]
@@ -46,6 +49,7 @@ public class Player2Controller : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
+        splitScreenController = GameObject.Find("SplitScreen").GetComponent<SplitScreenController>();
     }
 
     // Update is called once per frame
@@ -124,5 +128,25 @@ public class Player2Controller : MonoBehaviour
     public int GetHealth()
     {
         return health;
+    }
+
+    public void DamagePlayer(int damage)
+    {
+        if (health > 0)
+        {
+            health -= damage;
+        }
+        else
+        {
+            Dead();
+        }
+    }
+
+    public void Dead()
+    {
+        splitScreenController.RespawnPlayer2();
+        health = 0;
+        isDead = true;
+        Debug.Log("Player is Dead");
     }
 }

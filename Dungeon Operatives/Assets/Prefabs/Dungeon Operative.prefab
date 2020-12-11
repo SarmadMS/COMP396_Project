@@ -369,6 +369,14 @@ PrefabInstance:
       propertyPath: bulletRotationY
       value: 
       objectReference: {fileID: 7964969450972492351}
+    - target: {fileID: 8119084776276763340, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
+      propertyPath: bulletRotationX
+      value: 
+      objectReference: {fileID: 7964969449909596433}
+    - target: {fileID: 8119084776276763340, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
+      propertyPath: laser
+      value: 
+      objectReference: {fileID: 6727702298897037234}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
 --- !u!4 &7106278074811645176 stripped
@@ -379,5 +387,10 @@ Transform:
 --- !u!82 &1386280154872456539 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4813373690888340930, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
+  m_PrefabInstance: {fileID: 5904649751324057753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6727702298897037234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 913138027609642795, guid: 11ba7cf7d0e6c4345917296075aafcb1, type: 3}
   m_PrefabInstance: {fileID: 5904649751324057753}
   m_PrefabAsset: {fileID: 0}

@@ -45,5 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam1: {fileID: 0}
   playerCam2: {fileID: 0}
+  player1: {fileID: 7964969450972492346, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
+  player2: {fileID: 7964969450972492346, guid: 646e60cb7b7a58249b6473778780bbc6, type: 3}
   isSolo: 1
   isHorizontal: 1
+  playerSpawnPoint: {fileID: 0}

@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class SplitScreenController : MonoBehaviour
 {
-    public Camera playerCam1, playerCam2;
-    public bool isSolo = true;
-    public bool isHorizontal = true;
+    [SerializeField] Camera playerCam1, playerCam2;
+    [SerializeField] GameObject player1, player2;
+    [SerializeField] bool isSolo = true;
+    [SerializeField] bool isHorizontal = true;
+    [SerializeField] Transform playerSpawnPoint;
 
     // Start is called before the first frame update
     void Start()
-    {
-
+    {        
+        playerCam1.rect = new Rect(0f, 0f, 1f, 1f);
+        playerCam2.rect = new Rect(0f, 0f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -61,5 +64,15 @@ public class SplitScreenController : MonoBehaviour
             playerCam2.rect = new Rect(0f, 0f, 1f, 0.5f);
             isHorizontal = true;
         }
+    }
+
+    public void RespawnPlayer1()
+    {
+        Instantiate(player1, playerSpawnPoint.transform);
+    }
+
+    public void RespawnPlayer2()
+    {
+        Instantiate(player2, playerSpawnPoint.transform);
     }
 }

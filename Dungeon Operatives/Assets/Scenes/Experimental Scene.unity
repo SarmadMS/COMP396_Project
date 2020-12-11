@@ -8264,6 +8264,18 @@ PrefabInstance:
       propertyPath: playerCam2
       value: 
       objectReference: {fileID: 1901311594}
+    - target: {fileID: 2263410145181512950, guid: 82147d02fb577de49970a1060fb88081, type: 3}
+      propertyPath: player1
+      value: 
+      objectReference: {fileID: 7964969450972492346, guid: 35d9570ae51c5a64d8f0a71ead6afcec, type: 3}
+    - target: {fileID: 2263410145181512950, guid: 82147d02fb577de49970a1060fb88081, type: 3}
+      propertyPath: player2
+      value: 
+      objectReference: {fileID: 7964969450972492346, guid: 646e60cb7b7a58249b6473778780bbc6, type: 3}
+    - target: {fileID: 2263410145181512950, guid: 82147d02fb577de49970a1060fb88081, type: 3}
+      propertyPath: playerSpawnPoint
+      value: 
+      objectReference: {fileID: 1305042943}
     - target: {fileID: 2263410145181512951, guid: 82147d02fb577de49970a1060fb88081, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5371294
@@ -9985,6 +9997,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289667356}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1305042942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1305042943}
+  m_Layer: 0
+  m_Name: Player Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1305042943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305042942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.76, y: 0.375, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1306304481
 GameObject:
   m_ObjectHideFlags: 0

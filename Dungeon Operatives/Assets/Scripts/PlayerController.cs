@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     private bool isSprintingReady = true;
     private float sprintStartTime;
 
+    private SplitScreenController splitScreenController;
+
     [SerializeField] public AudioSource mainCameraAudioSource;
 
     [System.Serializable]
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
+        splitScreenController = GameObject.Find("SplitScreen").GetComponent<SplitScreenController>();
     }
 
     // Update is called once per frame
@@ -141,6 +144,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dead()
     {
+        splitScreenController.RespawnPlayer1();
         health = 0;
         isDead = true;
         Debug.Log("Player is Dead");
