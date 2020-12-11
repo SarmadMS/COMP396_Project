@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class M1911_Arms2 : MonoBehaviour
-{    
+{
     [SerializeField] int currentAmmo = 8;
     [SerializeField] int magazineSize = 8;
     [SerializeField] GameObject magazinePrefab;
@@ -16,6 +16,7 @@ public class M1911_Arms2 : MonoBehaviour
     [SerializeField] Transform bulletRotationX;
     [SerializeField] Transform bulletRotationY;
     [SerializeField] GameObject laser;
+    [SerializeField] Transform gunFix;
 
     private float lt;
     private float rt;
@@ -103,7 +104,7 @@ public class M1911_Arms2 : MonoBehaviour
         // 2 can play at that game!
     }
     public soundClips SoundClips;
-    
+
 
 
     // Start is called before the first frame update
@@ -168,7 +169,7 @@ public class M1911_Arms2 : MonoBehaviour
         }
 
         if (rt <= 0.5)
-        {            
+        {
             isFired = false;
         }
 
@@ -253,8 +254,8 @@ public class M1911_Arms2 : MonoBehaviour
             }
         }
 
-            // D=pad Vertical
-            if (dPad_v == 1)
+        // D=pad Vertical
+        if (dPad_v == 1)
         {
             mainCameraAudioSource.clip = SoundClips.p2_Lets_go;
             mainCameraAudioSource.Play();
@@ -350,11 +351,13 @@ public class M1911_Arms2 : MonoBehaviour
                 mainCameraAudioSource.clip = SoundClips.p2_Rot_in_hell;
                 mainCameraAudioSource.Play();
             }
-}
+        }
 
-            // Reload
-            if (Input.GetButtonUp("P2 Reload") && isAiming == false)
+        // Reload
+        if (Input.GetButtonUp("P2 Reload") && isAiming == false)
         {
+            GunFix();
+
             currentAmmo = magazineSize;
             if (isEmpty == false)
             {
@@ -417,9 +420,9 @@ public class M1911_Arms2 : MonoBehaviour
     }
 
     void NotAimSpawnBullet()
-    {             
+    {
         var bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, Quaternion.Euler(transform.eulerAngles.x + Random.Range(-5, 6), transform.eulerAngles.y + Random.Range(-5, 6), 0));
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletForce; 
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletForce;
         MuzzleVFX();
     }
 
@@ -436,5 +439,11 @@ public class M1911_Arms2 : MonoBehaviour
     void MuzzleFlashLightOff()
     {
         muzzleflashLight.enabled = false;
-    } 
+    }
+
+    void GunFix()
+    {
+        transform.position = transform.position;
+        transform.rotation = gunFix.rotation;
+    }
 }
